@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Provider as PaperProvider, Button } from "react-native-paper";
 import { StatusBar } from "expo-status-bar";
-import DefaultTheme from "./src/config/theme/default";
+import DefaultTheme from "shared/config/theme/default";
 
 export default function App() {
   return (
