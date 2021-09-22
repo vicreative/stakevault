@@ -1,8 +1,8 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { Provider as PaperProvider, Button } from "react-native-paper";
-import { StatusBar } from "expo-status-bar";
-import DefaultTheme from "shared/config/theme/default";
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { Provider as PaperProvider, Button } from 'react-native-paper';
+import { StatusBar } from 'expo-status-bar';
+import DefaultTheme from 'shared/config/theme/default';
 
 export default function App() {
   return (
@@ -13,7 +13,7 @@ export default function App() {
           icon="camera"
           mode="contained"
           labelStyle={{ color: DefaultTheme.colors.accent }}
-          onPress={() => console.log("Pressed")}
+          onPress={() => console.log('Pressed')}
         >
           Press me
         </Button>
@@ -26,8 +26,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

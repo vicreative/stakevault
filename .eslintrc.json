@@ -5,5 +5,9 @@
     "es6": true // enables es6 features
   },
   "parser": "babel-eslint", // needed to make babel stuff work properly
-  "extends": "airbnb"
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": ["error"]
+  }
 }
