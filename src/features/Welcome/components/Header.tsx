@@ -22,7 +22,8 @@ function Header() {
       <Button
         icon="chevron-right"
         contentStyle={{ flexDirection: 'row-reverse' }}
-        onPress={() => console.log('Skip')}
+        onPress={() => {}}
+        accessibilityLabel="Skip"
         mode="outlined"
       >
         Skip

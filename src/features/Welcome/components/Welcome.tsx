@@ -2,9 +2,9 @@ import * as React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Headline as Title } from 'react-native-paper';
 import { Button } from 'shared/components';
+import Header from './Header';
 import theme from 'shared/config/theme/default';
 import BonusIllustration from './BonusIllustration';
-import Header from './Header';
 
 const styles = StyleSheet.create({
   container: {
@@ -51,12 +51,12 @@ function Welcome() {
       </View>
       <View style={styles.buttonContainer}>
         <View style={styles.buttonContent}>
-          <Button mode="contained" onPress={() => console.log('Log in')}>
+          <Button mode="contained" onPress={() => {}} accessibilityLabel="Log in">
             Log In
           </Button>
         </View>
         <View style={styles.buttonContent}>
-          <Button mode="outlined" onPress={() => console.log('Register')}>
+          <Button mode="outlined" onPress={() => {}} accessibilityLabel="Sign up">
             Sign Up
           </Button>
         </View>
