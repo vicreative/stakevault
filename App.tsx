@@ -1,33 +1,43 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { Provider as PaperProvider, Button } from "react-native-paper";
-import { StatusBar } from "expo-status-bar";
-import DefaultTheme from "shared/config/theme/default";
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { Button, Provider as PaperProvider, TouchableRipple } from 'react-native-paper';
+import { StatusBar } from 'expo-status-bar';
+import theme from 'shared/config/theme/default';
+import AppLoading from 'expo-app-loading';
+import {
+  useFonts,
+  Montserrat_400Regular,
+  Montserrat_600SemiBold,
+  Montserrat_700Bold,
+} from '@expo-google-fonts/montserrat';
+import { Welcome } from 'features/Welcome';
 
 export default function App() {
-  return (
-    <PaperProvider theme={DefaultTheme}>
-      <View style={styles.container}>
-        <Text>Open up App.tsx to start working on your app!</Text>
-        <Button
-          icon="camera"
-          mode="contained"
-          labelStyle={{ color: DefaultTheme.colors.accent }}
-          onPress={() => console.log("Pressed")}
-        >
-          Press me
-        </Button>
-        <StatusBar style="auto" />
-      </View>
-    </PaperProvider>
-  );
+  let [fontsLoaded] = useFonts({
+    Montserrat_600SemiBold,
+    Montserrat_400Regular,
+    Montserrat_700Bold,
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  } else {
+    return (
+      <PaperProvider theme={theme}>
+        <View style={styles.container}>
+          <Welcome />
+
+          <StatusBar style="auto" />
+        </View>
+      </PaperProvider>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
