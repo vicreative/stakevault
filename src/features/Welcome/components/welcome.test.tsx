@@ -1,27 +1,34 @@
 import * as React from 'react';
 import { render, cleanup } from '@testing-library/react-native';
+import { en } from 'shared/i18n';
 import Welcome from './Welcome';
 
 afterEach(cleanup);
 
 describe('Welcome', () => {
   it('should return a greeting', () => {
-    const welcomeText = 'Get a reward any time you make a winning bet!';
+    const { welcomeText } = en.welcome;
 
-    const notFoundText = 'Not found text';
-
-    const { toJSON, getByText, queryByText } = render(<Welcome />);
+    const { toJSON, getByText } = render(<Welcome />);
 
     const foundWelcomeTextElement = getByText(welcomeText);
-    const notFoundTextElement = queryByText(notFoundText);
 
     expect(foundWelcomeTextElement.props.children).toEqual(welcomeText);
-    expect(notFoundTextElement).toBeNull();
     expect(toJSON()).toMatchSnapshot();
   });
 
+  it('should not find text that does not exist in the DOM', () => {
+    const notFoundText = 'This text does not exist';
+
+    const { queryByText } = render(<Welcome />);
+
+    const notFoundTextElement = queryByText(notFoundText);
+
+    expect(notFoundTextElement).toBeNull();
+  });
+
   it('should find the skip button via text', () => {
-    const text = 'Skip';
+    const text = en.welcome.skip;
 
     const { getByText } = render(<Welcome />);
 
@@ -31,7 +38,7 @@ describe('Welcome', () => {
   });
 
   it('should find the login button via accessibilityLabel', () => {
-    const accessibilityLabel = 'Log in';
+    const accessibilityLabel = en.welcome.login;
 
     const { getByA11yLabel } = render(<Welcome />);
 
@@ -41,7 +48,7 @@ describe('Welcome', () => {
   });
 
   it('should find the sign up button via accessibilityLabel', () => {
-    const accessibilityLabel = 'Sign up';
+    const accessibilityLabel = en.welcome.signup;
 
     const { getByA11yLabel } = render(<Welcome />);
 

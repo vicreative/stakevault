@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Svg, { Path, G, Defs, ClipPath } from 'react-native-svg';
 
-function BonusIllustration() {
+function WelcomeIllustration(): React.ReactElement {
   return (
     <Svg width={210} height={249} fill="none">
       <G clipPath="url(#prefix__clip0)">
@@ -93,4 +93,4 @@ function BonusIllustration() {
   );
 }
 
-export default BonusIllustration;
+export default WelcomeIllustration;

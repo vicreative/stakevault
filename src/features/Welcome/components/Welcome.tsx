@@ -2,9 +2,10 @@ import * as React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Headline as Title } from 'react-native-paper';
 import { Button } from 'shared/components';
+import { en } from 'shared/i18n';
 import Header from './Header';
 import theme from 'shared/config/theme/default';
-import BonusIllustration from './BonusIllustration';
+import WelcomeIllustration from './WelcomeIllustration';
 
 const styles = StyleSheet.create({
   container: {
@@ -46,18 +47,18 @@ function Welcome() {
     <View style={styles.container}>
       <Header />
       <View style={styles.illustrationContainer}>
-        <BonusIllustration />
-        <Title style={styles.illustrationText}>Get a reward any time you make a winning bet!</Title>
+        <WelcomeIllustration />
+        <Title style={styles.illustrationText}>{en.welcome.welcomeText}</Title>
       </View>
       <View style={styles.buttonContainer}>
         <View style={styles.buttonContent}>
-          <Button mode="contained" onPress={() => {}} accessibilityLabel="Log in">
-            Log In
+          <Button mode="contained" onPress={() => {}} accessibilityLabel={en.welcome.login}>
+            {en.welcome.login}
           </Button>
         </View>
         <View style={styles.buttonContent}>
-          <Button mode="outlined" onPress={() => {}} accessibilityLabel="Sign up">
-            Sign Up
+          <Button mode="outlined" onPress={() => {}} accessibilityLabel={en.welcome.signup}>
+            {en.welcome.signup}
           </Button>
         </View>
       </View>
