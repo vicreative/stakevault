@@ -13,16 +13,17 @@ const styles = StyleSheet.create({
 
 type ButtonProps = typeof ButtonType.propTypes & {
   children: React.ReactNode;
-  [prop: string]: any;
 };
 
-function Button({ mode, icon, children, ...props }: ButtonProps & any) {
+const Button = (props: ButtonProps & any) => {
+  const { mode, icon, children } = props;
+
   return (
     <BaseButton icon={icon} mode={mode} style={styles.button} {...props}>
       {children}
     </BaseButton>
   );
-}
+};
 
 Button.defaultProps = {
   mode: 'outlined',
