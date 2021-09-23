@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Provider as PaperProvider } from 'react-native-paper';
+import { Button, Provider as PaperProvider, TouchableRipple } from 'react-native-paper';
 import { StatusBar } from 'expo-status-bar';
 import theme from 'shared/config/theme/default';
 import AppLoading from 'expo-app-loading';

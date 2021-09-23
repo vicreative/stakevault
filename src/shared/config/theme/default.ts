@@ -25,6 +25,7 @@ const fontConfig: any = {
 
 const theme = {
   ...DefaultTheme,
+  dark: true,
   fonts: configureFonts(fontConfig),
   colors: {
     ...DefaultTheme.colors,

@@ -1,192 +1,65 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Svg, { Circle, Path, Ellipse, G, Defs, ClipPath } from 'react-native-svg';
-import { Button, Headline as Title } from 'react-native-paper';
+import * as React from 'react';
+import { StyleSheet, View } from 'react-native';
+import { Headline as Title } from 'react-native-paper';
+import { Button } from 'shared/components';
+import theme from 'shared/config/theme/default';
+import BonusIllustration from './BonusIllustration';
+import Header from './Header';
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#1D3557',
+    backgroundColor: theme.colors.accent,
     width: '100%',
     height: '100%',
-    color: '#ffffff',
+    paddingTop: 20,
+    paddingBottom: 20,
     paddingLeft: 16,
     paddingRight: 16,
   },
-  header: {
-    // backgroundColor: 'red',
-    height: '12%',
-    marginTop: '8%',
-    marginBottom: '10%',
-    flexDirection: 'row',
+  illustrationContainer: {
     alignItems: 'center',
-    justifyContent: 'space-between',
+    height: '74%',
+    paddingTop: 80,
+    justifyContent: 'center',
   },
-  skipButton: {
-    borderColor: '#A8DADC',
-    borderWidth: 1,
-  },
-  text: {
-    opacity: 0,
-  },
-  welcomeMessage: {
-    color: '#A8DADC',
+  illustrationText: {
+    color: theme.colors.primary,
     fontSize: 24,
     textAlign: 'center',
     fontFamily: 'Montserrat_700Bold',
-    paddingTop: '10%',
+    paddingTop: 44,
     fontWeight: '600',
   },
+  buttonContainer: {
+    height: '16%',
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  buttonContent: {
+    width: '48%',
+  },
 });
-
-function Logo() {
-  return (
-    <Svg width={48} height={48} fill="none">
-      <Circle cx={24} cy={24} r={24} fill="#A8DADC" />
-      <Path
-        d="M11.356 8.43h28.098v2.81H12.878c-1.522 0-1.552 1.022-1.522 2.809v5.62c.077 1.494 0 2.926 1.522 2.926h22.01c4.566 0 4.566.703 4.566 4.566v7.727c0 2.927 0 4.683-4.566 4.683H8.546v-2.81h25.171c2.81 0 2.81-1.288 2.81-2.81v-5.853c.186-1.653 0-2.693-2.81-2.693H11.356c-2.81 0-2.777-1.763-2.81-5.737v-5.62c.057-3.124 0-5.619 2.81-5.619z"
-        fill="#1D3557"
-      />
-      <Path fill="#A8DADC" d="M16.273 19.727h15.22v8.429h-15.22z" />
-      <Circle cx={23.883} cy={24} r={7.024} fill="#1D3557" />
-      <Ellipse cx={23.883} cy={23.883} rx={4.098} ry={4.156} fill="#A8DADC" />
-      <Path
-        d="M25.405 16.273h-2.81v-2.458c0-2.576 2.81-2.81 2.81 0v2.458zM25.405 31.71h-2.81v2.46c0 2.575 2.81 2.81 2.81 0v-2.46zM30.15 19.477l-1.987-1.987L29.9 15.75c1.822-1.82 3.974 0 1.987 1.987l-1.738 1.739zM30.15 28.754l-1.987 1.987L29.9 32.48c1.822 1.82 3.974 0 1.987-1.987l-1.738-1.739zM19.373 17.495l-1.987 1.986-1.739-1.738c-1.82-1.821 0-3.974 1.987-1.987l1.739 1.739zM19.373 30.746l-1.987-1.987-1.739 1.738c-1.82 1.822 0 3.974 1.987 1.987l1.739-1.738z"
-        fill="#1D3557"
-      />
-    </Svg>
-  );
-}
-
-function SkipButton() {
-  return (
-    <Button
-      icon="chevron-right"
-      mode="outlined"
-      style={styles.skipButton}
-      contentStyle={{ flexDirection: 'row-reverse' }}
-    >
-      Skip
-    </Button>
-  );
-}
-
-function BonusIllustration() {
-  return (
-    <Svg width={210} height={249} fill="none">
-      <G clipPath="url(#prefix__clip0)">
-        <Path
-          d="M33.114 35.782C12.532 48.696-2.046 71.896.234 93.763c2.33 21.817 21.524 42.347 28.117 68.224 6.593 25.878.645 57.189 11.656 73.117 10.957 15.982 38.992 16.673 61.836 9.647 22.91-6.975 40.663-21.667 60.4-34.827 19.736-13.112 41.419-24.737 46.518-41.509 5.099-16.721-6.398-38.601-18.896-54.912-12.448-16.376-25.984-27.16-39.968-42.248-13.983-15.087-28.465-34.432-48.996-42.79-20.579-8.363-47.211-5.643-67.787 7.317z"
-          fill="#F1FAEE"
-        />
-        <Path
-          d="M89.833 179.771l4.35-77.351M89.833 179.771l52.491-69.421M89.833 179.77l55.79-121.187"
-          stroke="#FED385"
-          strokeWidth={5}
-          strokeMiterlimit={10}
-          strokeLinecap="round"
-        />
-        <Path
-          d="M179.803 46.731c5.72-15.685.423-32.006-11.83-36.452-12.253-4.447-26.823 4.664-32.543 20.35-5.719 15.685-.423 32.005 11.83 36.452 12.253 4.447 26.823-4.664 32.543-20.35z"
-          fill="#E63946"
-        />
-        <Path
-          d="M121.183 80.715c1.164-16.65-8.437-30.882-21.444-31.787-13.007-.905-24.495 11.859-25.659 28.51-1.164 16.65 8.436 30.882 21.444 31.787 13.007.905 24.495-11.859 25.659-28.51z"
-          fill="#D37C59"
-        />
-        <Path
-          d="M183.101 94.137c8.119-16.643 3.289-35.675-10.787-42.508-14.076-6.834-32.068 1.118-40.187 17.76-8.118 16.643-3.289 35.675 10.787 42.509 14.076 6.834 32.068-1.118 40.187-17.761zM137.149 32.322c2.401-15.744-6.247-30.114-19.316-32.097-13.069-1.984-25.61 9.171-28.01 24.914-2.401 15.744 6.247 30.114 19.316 32.097 13.069 1.984 25.61-9.171 28.01-24.914z"
-          fill="#A8DADC"
-        />
-        <Path
-          d="M144.448 73.83c4.494-14.777-.773-29.453-11.764-32.78-10.992-3.328-23.546 5.953-28.04 20.73-4.495 14.776.772 29.453 11.764 32.78 10.991 3.327 23.545-5.954 28.04-20.73z"
-          fill="#457B9D"
-        />
-        <Path
-          d="M95.478 108.321l2.7 6.325a1.15 1.15 0 01-1.2 1.592l-6.836-.841a1.155 1.155 0 01-.922-.692 1.145 1.145 0 01.142-1.142l4.149-5.485a1.152 1.152 0 011.967.243z"
-          fill="#D37C59"
-        />
-        <Path
-          d="M89.833 179.771L79.935 68.757M89.833 179.77l13.198-43.986 13.197-43.987"
-          stroke="#FED385"
-          strokeWidth={5}
-          strokeMiterlimit={10}
-          strokeLinecap="round"
-        />
-        <Path
-          d="M117.206 91.878l1.572 6.694a1.142 1.142 0 01-.336 1.099 1.153 1.153 0 01-1.122.26l-6.599-1.996a1.151 1.151 0 01-.768-1.434c.059-.193.168-.368.315-.505l5.028-4.695a1.15 1.15 0 011.91.577z"
-          fill="#FED385"
-        />
-        <Path
-          d="M144.096 109.186l-.48 6.852a1.152 1.152 0 01-1.799.874l-5.699-3.843a1.142 1.142 0 01-.506-1.034 1.15 1.15 0 01.647-.952l6.187-3.011a1.162 1.162 0 011.146.083 1.155 1.155 0 01.504 1.031z"
-          fill="#74D5DE"
-        />
-        <Path
-          d="M80.228 72.094c15.604-1.253 27.048-17.224 25.56-35.674C104.3 17.97 90.444 4.03 74.84 5.282 59.236 6.535 47.793 22.506 49.28 40.956c1.489 18.45 15.344 32.39 30.948 31.138z"
-          fill="#457B9D"
-        />
-        <Path
-          d="M80.763 69.484l3.9 5.655a1.149 1.149 0 01-.297 1.594 1.156 1.156 0 01-.559.202l-6.853.565a1.156 1.156 0 01-1.24-1.054 1.15 1.15 0 01.106-.586l2.954-6.206a1.15 1.15 0 011.533-.554c.183.086.34.218.456.384z"
-          fill="#FD8369"
-        />
-        <Path
-          d="M62.16 234.888l65.684 13.023 11.693-58.698-65.684-13.022-11.693 58.697z"
-          fill="#DE8E68"
-        />
-        <Path
-          d="M76.504 196.542l65.682 13.023-2.637-20.354-65.685-13.022 2.64 20.353zM24.56 227.428l37.606 7.456 11.693-58.698-37.606-7.456-11.693 58.698z"
-          fill="#D37C59"
-        />
-        <Path
-          d="M63.81 194.023l-37.535-7.442 10.057-17.837 37.532 7.445-10.054 17.834z"
-          fill="#DE8E68"
-        />
-        <Path
-          d="M87.38 239.888l15.245 3.022 3.45-17.316-15.245-3.022-3.45 17.316z"
-          fill="#D37C59"
-        />
-        <Path
-          d="M70.918 212.172l22.958 4.552 2.518-12.641-22.958-4.552-2.519 12.641z"
-          fill="#FED385"
-        />
-        <Path
-          d="M86.976 213.435l5.19 1.029 1.829-9.184-5.19-1.029-1.83 9.184zM74.379 203.261l12.968 2.571.348-1.749-12.967-2.571-.349 1.749zM73.78 206.254l12.967 2.571.349-1.749-12.968-2.571-.349 1.749z"
-          fill="#FD8369"
-        />
-      </G>
-      <Defs>
-        <ClipPath id="prefix__clip0">
-          <Path fill="#fff" d="M0 0h210v249H0z" />
-        </ClipPath>
-      </Defs>
-    </Svg>
-  );
-}
-
-function Header() {
-  return (
-    <View style={styles.header}>
-      <Text style={styles.text}>Stakevault</Text>
-      <Logo />
-      <SkipButton />
-    </View>
-  );
-}
 
 function Welcome() {
   return (
     <View style={styles.container}>
       <Header />
-      <View
-        style={{
-          alignItems: 'center',
-          // backgroundColor: '#ccc',
-          height: '54%',
-          marginTop: 50,
-          justifyContent: 'center',
-        }}
-      >
+      <View style={styles.illustrationContainer}>
         <BonusIllustration />
-        <Title style={styles.welcomeMessage}>Get a reward any time you make a winning bet!</Title>
+        <Title style={styles.illustrationText}>Get a reward any time you make a winning bet!</Title>
+      </View>
+      <View style={styles.buttonContainer}>
+        <View style={styles.buttonContent}>
+          <Button mode="contained" onPress={() => console.log('Log in')}>
+            Log In
+          </Button>
+        </View>
+        <View style={styles.buttonContent}>
+          <Button mode="outlined" onPress={() => console.log('Register')}>
+            Sign Up
+          </Button>
+        </View>
       </View>
     </View>
   );
