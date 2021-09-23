@@ -3,23 +3,21 @@ import { StyleSheet, View } from 'react-native';
 import { Headline as Title } from 'react-native-paper';
 import { Button } from 'shared/components';
 import { en } from 'shared/i18n';
-import Header from './Header';
 import theme from 'shared/config/theme/default';
 import WelcomeIllustration from './WelcomeIllustration';
+import { WelcomeScreenProps } from 'shared/types';
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.colors.accent,
     width: '100%',
     height: '100%',
-    paddingTop: 20,
-    paddingBottom: 20,
     paddingLeft: 16,
     paddingRight: 16,
   },
   illustrationContainer: {
     alignItems: 'center',
-    height: '74%',
+    height: '80%',
     paddingTop: 80,
     justifyContent: 'center',
   },
@@ -32,7 +30,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   buttonContainer: {
-    height: '16%',
+    height: '20%',
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -42,10 +40,9 @@ const styles = StyleSheet.create({
   },
 });
 
-function Welcome() {
+function Welcome({ navigation }: WelcomeScreenProps) {
   return (
     <View style={styles.container}>
-      <Header />
       <View style={styles.illustrationContainer}>
         <WelcomeIllustration />
         <Title style={styles.illustrationText}>{en.welcome.welcomeText}</Title>
