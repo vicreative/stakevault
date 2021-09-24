@@ -14,8 +14,8 @@ import {
   Montserrat_700Bold,
 } from '@expo-google-fonts/montserrat';
 import { Welcome } from 'features/Welcome';
-import { Header } from 'shared/components';
 import { RootStackParamList } from 'shared/types';
+import { Register } from 'features/Register';
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 
@@ -35,11 +35,13 @@ export default function App() {
           <RootStack.Navigator
             initialRouteName="Welcome"
             screenOptions={{
-              header: ({ navigation }) => <Header onSkip={() => navigation.navigate('Landing')} />,
+              // header: ({ navigation }) => <Header onSkip={() => navigation.navigate('Landing')} />,
+              header: () => null,
             }}
           >
             <RootStack.Screen name="Welcome" component={Welcome} />
             <RootStack.Screen name="Landing" component={Welcome} />
+            <RootStack.Screen name="Register" component={Register} />
           </RootStack.Navigator>
         </NavigationContainer>
 
