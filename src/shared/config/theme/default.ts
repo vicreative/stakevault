@@ -31,6 +31,7 @@ const theme = {
     ...DefaultTheme.colors,
     primary: '#A8DADC',
     accent: '#1D3557',
+    text: '#A8DADC',
   },
 };
 

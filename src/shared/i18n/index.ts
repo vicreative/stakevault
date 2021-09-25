@@ -9,6 +9,8 @@ const en = {
   register: {
     title: 'Sign up',
     subText: 'Start winning bonuses now with StakeVault',
+    signup: 'Create Account',
+    loginLink: 'Already have an account? login',
   },
 };
 
