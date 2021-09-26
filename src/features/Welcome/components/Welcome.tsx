@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
 function Welcome() {
   const navigation = useNavigation<WelcomeScreenNavigationProps>();
   const goToLanding = () => navigation.push('Landing');
+  const goToLogin = () => navigation.push('Login');
   const goToRegister = () => navigation.push('Register');
 
   return (
@@ -56,7 +57,7 @@ function Welcome() {
       </View>
       <View style={styles.buttonContainer}>
         <View style={styles.buttonContent}>
-          <Button mode="contained" onPress={() => {}} accessibilityLabel={en.welcome.login}>
+          <Button mode="contained" onPress={goToLogin} accessibilityLabel={en.welcome.login}>
             {en.welcome.login}
           </Button>
         </View>

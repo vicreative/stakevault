@@ -1230,7 +1230,7 @@ exports[`Register should return a sub text 1`] = `
             ]
           }
         >
-          Create Account
+          Create account
         </Text>
       </View>
     </View>
@@ -2564,7 +2564,7 @@ exports[`Register should return a title 1`] = `
             ]
           }
         >
-          Create Account
+          Create account
         </Text>
       </View>
     </View>

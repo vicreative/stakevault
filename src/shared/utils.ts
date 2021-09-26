@@ -1,3 +1,5 @@
+import { PHONE_REGEX } from 'shared/constants';
+
 /**
  * Checks if a string is numeric in nature.
  * @param {String} str
@@ -9,3 +11,5 @@ export function isNumeric(str: string): Boolean {
     !isNaN(parseFloat(str as any))
   ); // ...and ensure strings of whitespace fail
 }
+
+export const isValidPhoneNumber = (phoneNumber: string) => PHONE_REGEX.test(phoneNumber);

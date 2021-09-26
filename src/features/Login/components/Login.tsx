@@ -12,7 +12,7 @@ import {
 import { en } from 'shared/i18n';
 import theme from 'shared/config/theme/default';
 import { Formik } from 'formik';
-import RegistrationSchema from './schema';
+import LoginSchema from './schema';
 import { RegisterScreenNavigationProps } from 'shared/types';
 import { isNumeric } from 'shared/utils';
 
@@ -27,7 +27,6 @@ const styles = StyleSheet.create({
     paddingRight: 16,
     justifyContent: 'center',
   },
-
   close: {
     marginBottom: 20,
     justifyContent: 'center',
@@ -69,44 +68,42 @@ const styles = StyleSheet.create({
 
 interface FormValues {
   email: string;
-  username: string;
   password: string;
 }
 
-function Register() {
+function Login() {
   const [isSecureEntry, setisSecureEntry] = React.useState(true);
-  const initialFormValues: FormValues = { email: '', username: '', password: '' };
+  const initialFormValues: FormValues = { email: '', password: '' };
   const navigation = useNavigation<RegisterScreenNavigationProps>();
 
-  const goToLogin = () => navigation.push('Login');
+  const goToWelcome = () => navigation.push('Welcome');
+  const goToRegister = () => navigation.push('Register');
   const goBack = () => navigation.goBack();
 
   const onSubmit = (values: FormValues) => {
     setTimeout(() => {
-      goToLogin();
+      goToWelcome();
     }, 3000);
   };
 
   return (
-    <Formik
-      validationSchema={RegistrationSchema}
-      initialValues={initialFormValues}
-      onSubmit={onSubmit}
-    >
+    <Formik validationSchema={LoginSchema} initialValues={initialFormValues} onSubmit={onSubmit}>
       {({ values, touched, errors, handleBlur, handleChange, isSubmitting, handleSubmit }) => (
         <View style={styles.container}>
           <IconButton
             icon="close"
             style={styles.close}
             size={30}
-            accessibilityLabel={en.register.close}
+            accessibilityLabel={en.login.close}
             onPress={goBack}
           />
-          <Title style={styles.title}>{en.register.title}</Title>
-          <SubText style={styles.subText}>{en.register.subText}</SubText>
+          <Title testID={en.login.title} style={styles.title}>
+            {en.login.title}
+          </Title>
+          <SubText style={styles.subText}>{en.login.subText}</SubText>
           <TextInput
-            label={en.register.email}
-            accessibilityLabel={en.register.email}
+            label={en.login.email}
+            accessibilityLabel={en.login.email}
             style={styles.TextInput}
             autoCompleteType="email"
             mode="outlined"
@@ -132,31 +129,10 @@ function Register() {
           />
           {errors.email ? <Error style={styles.error}>{errors.email}</Error> : null}
           <TextInput
-            label={en.register.username}
-            accessibilityLabel={en.register.username}
             style={styles.TextInput}
             mode="outlined"
-            autoCompleteType="username"
-            placeholder="johnny"
-            value={values.username}
-            onChangeText={handleChange('username')}
-            error={Boolean(touched.username && errors.username)}
-            right={
-              <TextInput.Icon
-                color={theme.colors.error}
-                name={errors.email ? 'alert-circle-outline' : ''}
-              />
-            }
-            theme={{
-              colors: { placeholder: theme.colors.primary },
-            }}
-          />
-          {errors.username ? <Error style={styles.error}>{errors.username}</Error> : null}
-          <TextInput
-            style={styles.TextInput}
-            mode="outlined"
-            label={en.register.password}
-            accessibilityLabel={en.register.password}
+            label={en.login.password}
+            accessibilityLabel={en.login.password}
             secureTextEntry={isSecureEntry}
             autoCompleteType="password"
             placeholder="Enter password"
@@ -182,11 +158,15 @@ function Register() {
             onPress={handleSubmit}
             loading={isSubmitting}
             mode="contained"
+            accessibilityLabel={en.login.signin}
           >
-            {en.register.signup}
+            {en.login.signin}
           </Button>
-          <Button onPress={goToLogin} style={styles.loginLink}>
-            {en.register.loginLink}
+          <Button onPress={goToRegister} style={styles.loginLink}>
+            {en.login.registerLink}
+          </Button>
+          <Button onPress={goToWelcome} style={styles.loginLink}>
+            {en.login.forgotPassword}
           </Button>
         </View>
       )}
@@ -194,4 +174,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default Login;
