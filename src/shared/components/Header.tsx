@@ -23,24 +23,16 @@ const styles = StyleSheet.create({
 });
 
 type HeaderProps = {
-  onSkip: Function;
+  children: React.ReactElement;
 };
 
-function Header({ onSkip }: HeaderProps) {
+function Header({ children }: HeaderProps) {
   return (
     <View style={styles.headerRouter}>
       <View style={styles.header}>
         <Text style={styles.text}>{en.welcome.name}</Text>
         <Logo />
-        <Button
-          icon="chevron-right"
-          contentStyle={{ flexDirection: 'row-reverse' }}
-          onPress={onSkip}
-          accessibilityLabel="Skip"
-          mode="outlined"
-        >
-          {en.welcome.skip}
-        </Button>
+        {children}
       </View>
     </View>
   );

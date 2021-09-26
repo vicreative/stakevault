@@ -50,7 +50,17 @@ function Welcome() {
 
   return (
     <View style={styles.container}>
-      <Header onSkip={goToLanding} />
+      <Header>
+        <Button
+          icon="chevron-right"
+          contentStyle={{ flexDirection: 'row-reverse' }}
+          onPress={goToLanding}
+          accessibilityLabel="Skip"
+          mode="outlined"
+        >
+          {en.welcome.skip}
+        </Button>
+      </Header>
       <View style={styles.illustrationContainer}>
         <WelcomeIllustration />
         <Title style={styles.illustrationText}>{en.welcome.welcomeText}</Title>
