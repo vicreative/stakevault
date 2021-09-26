@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import { phoneRegex } from 'shared/constants';
+import { PHONE_REGEX } from 'shared/constants';
 
 const RegistrationSchema = Yup.object().shape({
   email: Yup.string()
@@ -16,7 +16,7 @@ const RegistrationSchema = Yup.object().shape({
       then: Yup.string()
         .label('Mobile')
         .required('Please enter a valid phone number')
-        .matches(phoneRegex, 'Please enter a valid phone number'),
+        .matches(PHONE_REGEX, 'Please enter a valid phone number'),
     }),
   username: Yup.string()
     .label('Username')

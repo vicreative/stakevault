@@ -1,4 +1,4 @@
-import { phoneRegex } from 'shared/constants';
+import { PHONE_REGEX } from 'shared/constants';
 
 /**
  * Checks if a string is numeric in nature.
@@ -12,4 +12,4 @@ export function isNumeric(str: string): Boolean {
   ); // ...and ensure strings of whitespace fail
 }
 
-export const isValidPhoneNumber = (phoneNumber: string) => phoneRegex.test(phoneNumber);
+export const isValidPhoneNumber = (phoneNumber: string) => PHONE_REGEX.test(phoneNumber);
