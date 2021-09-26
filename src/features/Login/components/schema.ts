@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { phoneRegex } from 'shared/constants';
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string()
@@ -15,10 +16,7 @@ const LoginSchema = Yup.object().shape({
       then: Yup.string()
         .label('Mobile')
         .required('Please enter a valid phone number')
-        .matches(
-          /^([0]{1}|\+?[234]{3})([7-9]{1})([0|1]{1})([\d]{1})([\d]{7})$/g,
-          'Please enter a valid phone number'
-        ),
+        .matches(phoneRegex, 'Please enter a valid phone number'),
     }),
   password: Yup.string()
     .label('Password')

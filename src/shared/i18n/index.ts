@@ -19,7 +19,7 @@ const en = {
   login: {
     title: 'Log in',
     subText: 'Securely login to your StakeVault',
-    login: 'Log in',
+    signin: 'Log in',
     registerLink: `Don't have an account? create one`,
     close: 'Close',
     email: 'Email/Phone number',

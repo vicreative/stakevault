@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
-    paddingTop: 80,
+    paddingTop: 60,
     paddingLeft: 16,
     paddingRight: 16,
     fontSize: 34,
@@ -97,7 +97,9 @@ function Login() {
             accessibilityLabel={en.login.close}
             onPress={goBack}
           />
-          <Title style={styles.title}>{en.login.title}</Title>
+          <Title testID={en.login.title} style={styles.title}>
+            {en.login.title}
+          </Title>
           <SubText style={styles.subText}>{en.login.subText}</SubText>
           <TextInput
             label={en.login.email}
@@ -156,11 +158,15 @@ function Login() {
             onPress={handleSubmit}
             loading={isSubmitting}
             mode="contained"
+            accessibilityLabel={en.login.signin}
           >
-            {en.login.login}
+            {en.login.signin}
           </Button>
           <Button onPress={goToRegister} style={styles.loginLink}>
             {en.login.registerLink}
+          </Button>
+          <Button onPress={goToWelcome} style={styles.loginLink}>
+            {en.login.forgotPassword}
           </Button>
         </View>
       )}
