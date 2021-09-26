@@ -23,14 +23,20 @@ const fontConfig: any = {
   },
 };
 
+const turquoise = '#A8DADC';
+const catalinaBlue = '#1D3557';
+const lightRed = '#FF5B68';
+
 const theme = {
   ...DefaultTheme,
   dark: true,
   fonts: configureFonts(fontConfig),
   colors: {
     ...DefaultTheme.colors,
-    primary: '#A8DADC',
-    accent: '#1D3557',
+    primary: turquoise,
+    accent: catalinaBlue,
+    text: turquoise,
+    error: lightRed,
   },
 };
 

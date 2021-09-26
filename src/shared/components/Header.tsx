@@ -2,6 +2,7 @@ import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Logo from './Logo/Logo';
 import Button from './Button/Button';
+import { en } from 'shared/i18n';
 import theme from 'shared/config/theme/default';
 
 const styles = StyleSheet.create({
@@ -10,8 +11,6 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
     justifyContent: 'center',
     backgroundColor: theme.colors.accent,
-    paddingRight: 16,
-    paddingLeft: 16,
   },
   header: {
     flexDirection: 'row',
@@ -31,7 +30,7 @@ function Header({ onSkip }: HeaderProps) {
   return (
     <View style={styles.headerRouter}>
       <View style={styles.header}>
-        <Text style={styles.text}>Stakevault</Text>
+        <Text style={styles.text}>{en.welcome.name}</Text>
         <Logo />
         <Button
           icon="chevron-right"
@@ -40,7 +39,7 @@ function Header({ onSkip }: HeaderProps) {
           accessibilityLabel="Skip"
           mode="outlined"
         >
-          Skip
+          {en.welcome.skip}
         </Button>
       </View>
     </View>

@@ -1,11 +1,13 @@
 import * as React from 'react';
 import { StyleSheet, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { Headline as Title } from 'react-native-paper';
 import { Button } from 'shared/components';
 import { en } from 'shared/i18n';
 import theme from 'shared/config/theme/default';
 import WelcomeIllustration from './WelcomeIllustration';
-import { WelcomeScreenProps } from 'shared/types';
+import { Header } from 'shared/components';
+import { WelcomeScreenNavigationProps } from 'shared/types';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,7 +19,7 @@ const styles = StyleSheet.create({
   },
   illustrationContainer: {
     alignItems: 'center',
-    height: '80%',
+    height: '64%',
     paddingTop: 80,
     justifyContent: 'center',
   },
@@ -30,7 +32,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   buttonContainer: {
-    height: '20%',
+    height: '16%',
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -40,9 +42,14 @@ const styles = StyleSheet.create({
   },
 });
 
-function Welcome({ navigation }: WelcomeScreenProps) {
+function Welcome() {
+  const navigation = useNavigation<WelcomeScreenNavigationProps>();
+  const goToLanding = () => navigation.push('Landing');
+  const goToRegister = () => navigation.push('Register');
+
   return (
     <View style={styles.container}>
+      <Header onSkip={goToLanding} />
       <View style={styles.illustrationContainer}>
         <WelcomeIllustration />
         <Title style={styles.illustrationText}>{en.welcome.welcomeText}</Title>
@@ -54,7 +61,7 @@ function Welcome({ navigation }: WelcomeScreenProps) {
           </Button>
         </View>
         <View style={styles.buttonContent}>
-          <Button mode="outlined" onPress={() => {}} accessibilityLabel={en.welcome.signup}>
+          <Button mode="outlined" onPress={goToRegister} accessibilityLabel={en.welcome.signup}>
             {en.welcome.signup}
           </Button>
         </View>
