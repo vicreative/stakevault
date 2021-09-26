@@ -11,6 +11,10 @@ const en = {
     subText: 'Start winning bonuses now with StakeVault',
     signup: 'Create Account',
     loginLink: 'Already have an account? login',
+    close: 'Close',
+    email: 'Email/Phone number',
+    username: 'Username',
+    password: 'Password',
   },
 };
 

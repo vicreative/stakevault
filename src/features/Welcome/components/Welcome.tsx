@@ -7,6 +7,7 @@ import { en } from 'shared/i18n';
 import theme from 'shared/config/theme/default';
 import WelcomeIllustration from './WelcomeIllustration';
 import { Header } from 'shared/components';
+import { WelcomeScreenNavigationProps } from 'shared/types';
 
 const styles = StyleSheet.create({
   container: {
@@ -42,9 +43,9 @@ const styles = StyleSheet.create({
 });
 
 function Welcome() {
-  const navigation = useNavigation();
-  const goToLanding = () => navigation.navigate({ key: 'Landing' });
-  const goToRegister = () => navigation.navigate({ key: 'Register' });
+  const navigation = useNavigation<WelcomeScreenNavigationProps>();
+  const goToLanding = () => navigation.push('Landing');
+  const goToRegister = () => navigation.push('Register');
 
   return (
     <View style={styles.container}>
