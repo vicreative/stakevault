@@ -3,6 +3,7 @@
   "compilerOptions": {
     "strict": true,
     "paths": {
+      "features": ["./src/features"],
       "features/*": ["./src/features/*"],
       "shared/*": ["./src/shared/*"]
     }
