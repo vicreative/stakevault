@@ -12,14 +12,14 @@ const styles = StyleSheet.create({
 });
 
 type ButtonProps = typeof ButtonType.propTypes & {
-  children: React.ReactNode;
+  children: React.ReactElement;
 };
 
 const Button = (props: ButtonProps & any) => {
   const { mode, icon, children } = props;
 
   return (
-    <BaseButton icon={icon} mode={mode} style={styles.button} {...props}>
+    <BaseButton icon={icon} mode={mode} style={styles.button} {...(props as any)}>
       {children}
     </BaseButton>
   );

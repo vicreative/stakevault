@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import {
   IconButton,
   Button,
@@ -10,7 +11,7 @@ import {
 } from 'react-native-paper';
 import { en } from 'shared/i18n';
 import theme from 'shared/config/theme/default';
-import { useFormik, Formik } from 'formik';
+import { Formik } from 'formik';
 import RegistrationSchema from './schema';
 
 const styles = StyleSheet.create({
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
   error: {
     paddingLeft: 30,
     fontSize: 12,
-    color: 'red',
+    color: theme.colors.error,
   },
   signup: {
     marginLeft: 16,
@@ -63,23 +64,31 @@ const styles = StyleSheet.create({
   },
   loginLink: {
     marginTop: 12,
-    fontFamily: 'Montserrat_700Bold',
   },
 });
 
-function Register({ navigation }: any) {
-  const [isSecureEntry, setisSecureEntry] = React.useState(true);
+interface FormValues {
+  email: string;
+  username: string;
+  password: string;
+}
 
-  const onSubmit = (values: any) => {
+function Register() {
+  const [isSecureEntry, setisSecureEntry] = React.useState(true);
+  const initialFormValues: FormValues = { email: '', username: 'johnny', password: 'johnnnny' };
+  const navigation = useNavigation();
+  const goToWelcome = () => navigation.navigate({ key: 'Welcome' });
+
+  const onSubmit = (values: FormValues) => {
     setTimeout(() => {
-      navigation.navigate('Welcome');
+      goToWelcome();
     }, 3000);
   };
 
   return (
     <Formik
       validationSchema={RegistrationSchema}
-      initialValues={{ email: '', username: '', password: '' }}
+      initialValues={initialFormValues}
       onSubmit={onSubmit}
     >
       {({ values, touched, errors, handleBlur, handleChange, isSubmitting, handleSubmit }) => (
@@ -112,7 +121,10 @@ function Register({ navigation }: any) {
               value={values.email}
               error={Boolean(touched.email && errors.email)}
               right={
-                <TextInput.Icon color="red" name={errors.email ? 'alert-circle-outline' : ''} />
+                <TextInput.Icon
+                  color={theme.colors.error}
+                  name={errors.email ? 'alert-circle-outline' : ''}
+                />
               }
               theme={{
                 colors: { placeholder: theme.colors.primary },
@@ -128,6 +140,12 @@ function Register({ navigation }: any) {
               value={values.username}
               onChangeText={handleChange('username')}
               error={Boolean(touched.username && errors.username)}
+              right={
+                <TextInput.Icon
+                  color={theme.colors.error}
+                  name={errors.email ? 'alert-circle-outline' : ''}
+                />
+              }
               theme={{
                 colors: { placeholder: theme.colors.primary },
               }}
@@ -148,6 +166,7 @@ function Register({ navigation }: any) {
                   onPress={() => {
                     setisSecureEntry((prev) => !prev);
                   }}
+                  color={errors.password ? theme.colors.error : theme.colors.primary}
                   name={isSecureEntry ? 'eye-off' : 'eye'}
                 />
               }
@@ -164,7 +183,7 @@ function Register({ navigation }: any) {
             >
               {en.register.signup}
             </Button>
-            <Button onPress={() => navigation.navigate('Welcome')} style={styles.loginLink}>
+            <Button onPress={goToWelcome} style={styles.loginLink}>
               {en.register.loginLink}
             </Button>
           </View>

@@ -17,16 +17,14 @@ const RegistrationSchema = Yup.object().shape({
   }),
   username: Yup.string()
     .label('Username')
-    .required()
+    .required('Username should not be empty')
     .min(2, 'Must have at least 2 characters')
-    .max(20, 'Must not have more than 15 characters'),
+    .max(20, 'Must not have more than 20 characters'),
   password: Yup.string()
     .label('Password')
-    .required()
-    .matches(/\w*[A-Z]\w*/, 'Password must have a capital letter')
-    .matches(/\d/, 'Password must have a number')
+    .required('Password should not be empty')
     .min(8, ({ min }) => `Password must be at least ${min} characters`)
-    .max(40, ({ max }) => `Password must be at least ${max} characters`),
+    .max(256, ({ max }) => `Password must be at least ${max} characters`),
 });
 
 export default RegistrationSchema;
