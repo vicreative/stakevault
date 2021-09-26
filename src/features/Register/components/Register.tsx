@@ -130,7 +130,7 @@ function Register() {
               colors: { placeholder: theme.colors.primary },
             }}
           />
-          {errors.email && <Error style={styles.error}>{errors.email}</Error>}
+          {errors.email ? <Error style={styles.error}>{errors.email}</Error> : null}
           <TextInput
             label={en.register.username}
             accessibilityLabel={en.register.username}
@@ -151,7 +151,7 @@ function Register() {
               colors: { placeholder: theme.colors.primary },
             }}
           />
-          {errors.username && <Error style={styles.error}>{errors.username}</Error>}
+          {errors.username ? <Error style={styles.error}>{errors.username}</Error> : null}
           <TextInput
             style={styles.TextInput}
             mode="outlined"
@@ -176,7 +176,7 @@ function Register() {
               colors: { placeholder: theme.colors.primary },
             }}
           />
-          {errors.password && <Error style={styles.error}>{errors.password}</Error>}
+          {errors.password ? <Error style={styles.error}>{errors.password}</Error> : null}
           <Button
             style={styles.signup}
             onPress={handleSubmit}
