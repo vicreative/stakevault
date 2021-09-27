@@ -26,6 +26,8 @@ const fontConfig: any = {
 const turquoise = '#A8DADC';
 const catalinaBlue = '#1D3557';
 const lightRed = '#FF5B68';
+const silverSand = '#C3C3C3';
+const white = '#ffffff';
 
 const theme = {
   ...DefaultTheme,
@@ -37,6 +39,8 @@ const theme = {
     accent: catalinaBlue,
     text: turquoise,
     error: lightRed,
+    white: white,
+    grey: silverSand,
   },
 };
 

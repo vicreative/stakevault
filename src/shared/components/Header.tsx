@@ -7,17 +7,21 @@ import theme from 'shared/config/theme/default';
 
 const styles = StyleSheet.create({
   headerRouter: {
-    paddingTop: 40,
-    paddingBottom: 40,
+    paddingTop: 20,
+    paddingBottom: 20,
     justifyContent: 'center',
     backgroundColor: theme.colors.accent,
   },
   header: {
+    paddingLeft: 20,
+    paddingRight: 20,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
   },
   text: {
+    color: theme.colors.primary,
+    fontSize: 24,
     opacity: 0,
   },
 });

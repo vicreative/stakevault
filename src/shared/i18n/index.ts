@@ -26,6 +26,12 @@ const en = {
     password: 'Password',
     forgotPassword: 'Forgot password',
   },
+  landing: {
+    postSlip: 'Post slip',
+    hero: 'Make correct predictions. Win up to ',
+    amount: 'NGN 10,000',
+    title: 'Latest tips',
+  },
 };
 
 export { en };

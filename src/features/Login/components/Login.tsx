@@ -13,7 +13,7 @@ import { en } from 'shared/i18n';
 import theme from 'shared/config/theme/default';
 import { Formik } from 'formik';
 import LoginSchema from './schema';
-import { RegisterScreenNavigationProps } from 'shared/types';
+import { LoginScreenNavigationProps } from 'shared/types';
 import { isNumeric } from 'shared/utils';
 
 const styles = StyleSheet.create({
@@ -74,15 +74,15 @@ interface FormValues {
 function Login() {
   const [isSecureEntry, setisSecureEntry] = React.useState(true);
   const initialFormValues: FormValues = { email: '', password: '' };
-  const navigation = useNavigation<RegisterScreenNavigationProps>();
+  const navigation = useNavigation<LoginScreenNavigationProps>();
 
-  const goToWelcome = () => navigation.push('Welcome');
+  const goToLanding = () => navigation.push('Landing');
   const goToRegister = () => navigation.push('Register');
   const goBack = () => navigation.goBack();
 
   const onSubmit = (values: FormValues) => {
     setTimeout(() => {
-      goToWelcome();
+      goToLanding();
     }, 3000);
   };
 
@@ -165,7 +165,7 @@ function Login() {
           <Button onPress={goToRegister} style={styles.loginLink}>
             {en.login.registerLink}
           </Button>
-          <Button onPress={goToWelcome} style={styles.loginLink}>
+          <Button onPress={goToRegister} style={styles.loginLink}>
             {en.login.forgotPassword}
           </Button>
         </View>
