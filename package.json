@@ -8,12 +8,14 @@
     "eject": "expo eject",
     "test": "jest",
     "storybook": "start-storybook -p 7007",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "mock:api": "json-server --watch api/db.json --port 4000"
   },
   "dependencies": {
     "@expo-google-fonts/montserrat": "^0.2.0",
     "@react-navigation/native": "^6.0.2",
     "@react-navigation/native-stack": "^6.1.0",
+    "babel-plugin-inline-dotenv": "^1.6.0",
     "color": "^4.0.1",
     "expo": "~42.0.1",
     "expo-app-loading": "^1.1.2",

@@ -1,0 +1,61 @@
+{
+  "latesttips": {
+    "tips": [
+      {
+        "id": 0,
+        "providerName": "Sportsbet.io",
+        "url": "https://ibb.co/DgH9Lfm",
+        "uid": "@johncoolie",
+        "slug": "sportybet",
+        "bookingNumber": "B945WTWPTQQWRS-6936271",
+        "dateAdded": "5 minutes ago"
+      },
+      {
+        "id": 1,
+        "providerName": "Bet9ja",
+        "slug": "bet9ja",
+        "url": "https://ibb.co/mCrFmRp",
+        "uid": "anonymous",
+        "bookingNumber": "B945WTWPTQQWRS-6936271",
+        "dateAdded": "2 days ago"
+      },
+      {
+        "id": 2,
+        "providerName": "Betway",
+        "url": "https://ibb.co/64cFks0",
+        "slug": "betway",
+        "uid": "anonymous",
+        "bookingNumber": "B945WTWPTQQWRS-6936271",
+        "dateAdded": "1 week ago"
+      },
+      {
+        "id": 3,
+        "providerName": "BetKing",
+        "slug": "betking",
+        "url": "https://ibb.co/T4r7hsh",
+        "uid": "@jamesdonie",
+        "bookingNumber": "B945WTWPTQQWRS-6936271",
+        "dateAdded": "30 days ago"
+      }
+    ]
+  },
+  "users": {
+    "user": {
+      "id": 0,
+      "username": "TheIncredibleTipster",
+      "email": "incredibletipster@gmail.com",
+      "bank": [
+        {
+          "name": "Guarantee Trust Bank",
+          "nuban": "0120045535",
+          "active": true
+        },
+        {
+          "name": "Sterling Bank",
+          "nuban": "3020045535",
+          "active": false
+        }
+      ]
+    }
+  }
+}
