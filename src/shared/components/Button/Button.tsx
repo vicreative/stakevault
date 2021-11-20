@@ -19,14 +19,19 @@ const Button = (props: ButtonProps & any) => {
   const { mode, icon, children } = props;
 
   return (
-    <BaseButton icon={icon} mode={mode} style={styles.button} {...(props as any)}>
+    <BaseButton
+      icon={icon}
+      mode={mode}
+      style={mode === 'outlined' ? styles.button : null}
+      {...(props as any)}
+    >
       {children}
     </BaseButton>
   );
 };
 
 Button.defaultProps = {
-  mode: 'outlined',
+  mode: 'outlined' || 'contained' || 'text',
 };
 
 export default Button;

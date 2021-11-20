@@ -1,3 +1,9 @@
 export { default as Button } from './Button/Button';
 export { default as Logo } from './Logo/Logo';
 export { default as Header } from './Header';
+export { default as Card } from './Card/Card';
+export { default as SportyBetLogo } from './Icon/Sportybet';
+export { default as Bet9jaLogo } from './Icon/Bet9ja';
+export { default as BetWayLogo } from './Icon/Betway';
+export { default as BetKingLogo } from './Icon/Betking';
+export { default as MissingLogo } from './Icon/Missing';

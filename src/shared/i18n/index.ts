@@ -30,7 +30,23 @@ const en = {
     postSlip: 'Post slip',
     hero: 'Make correct predictions. Win up to ',
     amount: 'NGN 10,000',
-    title: 'Latest tips',
+    latestTips: {
+      title: 'Latest tips',
+    },
+  },
+  profile: {
+    close: 'Close',
+    title: 'Profile',
+    subText: 'View and update personal information.',
+    bank: {
+      title: 'Bank accounts',
+      buttonText: 'Add bank account',
+    },
+    userInformation: {
+      title: 'Personal information',
+      username: 'Username',
+      Email: 'Email address',
+    },
   },
 };
 
