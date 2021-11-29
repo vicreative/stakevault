@@ -26,6 +26,7 @@ const fontConfig: any = {
 const turquoise = '#A8DADC';
 const catalinaBlue = '#1D3557';
 const komori = '#172E4F';
+const midnight = '#132642';
 const lightRed = '#FF5B68';
 const silverSand = '#C3C3C3';
 const white = '#ffffff';
@@ -45,6 +46,7 @@ const theme = {
     black: black,
     grey: silverSand,
     komori: komori,
+    midnight: midnight,
   },
 };
 
