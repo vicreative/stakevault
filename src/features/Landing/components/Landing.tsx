@@ -6,6 +6,7 @@ import {
   BottomNavigation,
   IconButton,
   Subheading as SubText,
+  Chip,
 } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { Button, Card } from 'shared/components';
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat_700Bold',
     color: theme.colors.accent,
   },
-  tipsTitle: {
+  title: {
     fontSize: 14,
     lineHeight: 36,
     paddingLeft: 20,
@@ -82,22 +83,60 @@ const styles = StyleSheet.create({
     color: theme.colors.grey,
   },
   profileTitle: {
-    paddingTop: 60,
-    paddingLeft: 16,
-    paddingRight: 16,
+    paddingTop: 30,
+    paddingLeft: 20,
+    paddingRight: 20,
     fontSize: 34,
     lineHeight: 36,
     fontFamily: 'Montserrat_700Bold',
   },
   subText: {
-    paddingLeft: 16,
-    paddingRight: 16,
+    paddingLeft: 20,
+    paddingRight: 20,
     fontSize: 12,
   },
   bottomNav: {
     backgroundColor: theme.colors.komori,
     paddingTop: 6,
     paddingBottom: 6,
+  },
+  bankAccount: {
+    paddingTop: 10,
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  chip: {
+    justifyContent: 'center',
+  },
+  active: {
+    backgroundColor: theme.colors.midnight,
+    borderColor: theme.colors.komori,
+    borderRadius: 20,
+  },
+  inActive: {
+    backgroundColor: theme.colors.accent,
+    color: theme.colors.primary,
+    borderColor: theme.colors.primary,
+    borderRadius: 20,
+  },
+  userInformation: {
+    paddingLeft: 20,
+    paddingRight: 20,
+  },
+  userInformationTitle: {
+    color: theme.colors.white,
+    fontSize: 18,
+    paddingBottom: 10,
+    fontFamily: 'Montserrat_700Bold',
+  },
+  textContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  text: {
+    color: theme.colors.grey,
+    paddingBottom: 10,
   },
 });
 
@@ -135,7 +174,7 @@ function HomeRoute() {
           <Text style={styles.heroMsgPrice}>{en.landing.amount}</Text>
         </Text>
       </View>
-      <Title style={styles.tipsTitle}>{en.landing.latestTips.title}</Title>
+      <Title style={styles.title}>{en.landing.latestTips.title}</Title>
       <ScrollView style={styles.scrollView}>
         {tips.map((tip: any) => {
           return (
@@ -160,12 +199,25 @@ function HomeRoute() {
   );
 }
 
+type Bank = {
+  name: string;
+  nuban: string;
+  active: boolean;
+};
+
+type User = {
+  id: string | number;
+  username: string;
+  email: string;
+  bank: Bank[];
+};
+
 function AccountRoute() {
   const navigation = useNavigation<LandingScreenNavigationProps>();
 
   const goBack = () => navigation.goBack();
 
-  const [user, setUser] = React.useState();
+  const [user, setUser] = React.useState<User>();
 
   React.useEffect(() => {
     const getUser = async () => {
@@ -195,56 +247,49 @@ function AccountRoute() {
         {en.profile.title}
       </Title>
       <SubText style={styles.subText}>{en.profile.subText}</SubText>
-      <View
-        style={{
-          paddingTop: 20,
-          width: '100%',
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-        }}
-      >
-        <Title style={styles.tipsTitle}>{en.profile.bank.title}</Title>
+      <View style={styles.bankAccount}>
+        <Title style={styles.title}>{en.profile.bank.title}</Title>
         <Button mode="text" onPress={goBack}>
           {en.profile.bank.buttonText}
         </Button>
       </View>
       <View>
-        {user?.bank.map((bank: any) => {
+        {user?.bank.map((bank: Bank) => {
           return (
             <Card
-              key={bank.id}
+              key={bank.nuban}
               icon={<Icon name="sportybet" />}
               content={
-                <>
-                  <View style={styles.wrapper}>
+                <View style={styles.wrapper}>
+                  <View style={{ flexDirection: 'column' }}>
                     <Text style={styles.providerName}>{bank.name}</Text>
-                    {bank.active == true ? (
-                      <Button
-                        style={{
-                          backgroundColor: '#132642',
-                          borderColor: '#132642',
-                          borderRadius: 20,
-                        }}
-                        icon="check"
-                      >
-                        Active
-                      </Button>
-                    ) : (
-                      <Button
-                        style={{
-                          borderRadius: 20,
-                        }}
-                      >
-                        Activate
-                      </Button>
-                    )}
+                    <Text style={styles.bookingNumber}>{bank.nuban}</Text>
                   </View>
-                  <Text style={styles.bookingNumber}>{bank.nuban}</Text>
-                </>
+                  <View style={styles.chip}>
+                    <Chip
+                      icon={bank.active ? 'check' : ''}
+                      style={bank.active ? styles.active : styles.inActive}
+                      onPress={() => console.log(bank.active ? 'Deactivate' : 'Activate')}
+                    >
+                      {bank.active ? 'Active' : 'Activate'}
+                    </Chip>
+                  </View>
+                </View>
               }
             />
           );
         })}
+      </View>
+      <View style={styles.userInformation}>
+        <Title style={styles.userInformationTitle}>{en.profile.userInformation.title}</Title>
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>{en.profile.userInformation.username}</Text>
+          <Text>{user?.username}</Text>
+        </View>
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>{en.profile.userInformation.email}</Text>
+          <Text>{user?.email}</Text>
+        </View>
       </View>
     </View>
   );

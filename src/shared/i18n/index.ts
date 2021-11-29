@@ -45,7 +45,7 @@ const en = {
     userInformation: {
       title: 'Personal information',
       username: 'Username',
-      Email: 'Email address',
+      email: 'Email address',
     },
   },
 };

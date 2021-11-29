@@ -22,7 +22,7 @@ const Button = (props: ButtonProps & any) => {
     <BaseButton
       icon={icon}
       mode={mode}
-      style={mode === 'outlined' ? styles.button : null}
+      style={mode === 'outlined' ? styles.button : mode}
       {...(props as any)}
     >
       {children}
